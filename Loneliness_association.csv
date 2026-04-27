@@ -1,0 +1,70 @@
+ID,Follow_celeb,Gender,Age_group,L_C1,L_C2,L_C3,L_C4,L_C5,L_C6,L_C7,L_C8,F_C1,F_C2,F_C3,F_C4,F_C5,F_C6,F_C7
+1,No,,,,,,,,,,,,,,,,,
+2,Yes.,Female,25-34 years old2534,Never,Rarely,Rarely,Never,Rarely,Sometimes,Never,Sometimes,Strongly disagree,Agree,Strongly disagree,Agree,Neutral,Agree,Disagree
+3,Yes.,Female,16-24 years old1624,Rarely,Never,Often,Never,Never,Often,Never,Rarely,Neutral,Agree,Strongly agree,Agree,Strongly agree,Agree,Agree
+4,Yes.,Female,16-24 years old1624,Never,Never,Sometimes,Never,Rarely,Often,Never,Never,Agree,Agree,Agree,Agree,Agree,Agree,Neutral
+5,Yes,Female,16-24 years old1624,Sometimes,Rarely,Sometimes,Rarely,Rarely,Sometimes,Sometimes,Rarely,Disagree,Agree,Agree,Neutral,Agree,Agree,Neutral
+6,Yes.,Female,16-24 years old1624,Sometimes,Rarely,Sometimes,Never,Rarely,Sometimes,Rarely,Never,Neutral,Disagree,Neutral,Agree,Agree,Agree,Agree
+7,Yes.,Female,16-24 years old1624,Rarely,Rarely,Rarely,Never,Never,Often,Rarely,Never,Agree,Agree,Neutral,Neutral,Neutral,Agree,Agree
+8,No.,,,,,,,,,,,,,,,,,
+9,Yes.,Female,16-24 years old1624,Never,Never,Rarely,Never,Never,Never,Never,Rarely,Disagree,Disagree,Disagree,Disagree,Strongly disagree,Disagree,Strongly disagree
+10,Yes.,Female,16-24 years old1624,Sometimes,Sometimes,Rarely,Rarely,Rarely,Sometimes,Sometimes,Rarely,Disagree,Neutral,Agree,Agree,Neutral,Agree,Agree
+11,Yes.,Female,16-24 years old1624,Rarely,Never,Often,Rarely,Rarely,Often,Never,Never,Agree,Agree,Agree,Agree,Neutral,Agree,Disagree
+12,Yes.,Female,16-24 years old1624,Sometimes,Sometimes,Often,Never,Never,Often,Often,Never,Neutral,Neutral,Neutral,Agree,Agree,Agree,Neutral
+13,Yes.,Female,16-24 years old1624,Sometimes,Never,Sometimes,Never,Never,Often,Never,Never,Strongly disagree,Neutral,Disagree,Neutral,Neutral,Agree,Disagree
+14,Yes.,Female,25-34 years old2534,Never,Never,Sometimes,Rarely,Rarely,Often,Sometimes,Never,Strongly disagree,Strongly agree,Strongly disagree,Agree,Agree,Neutral,Agree
+15,No.,,,,,,,,,,,,,,,,,
+16,Yes.,Female,35-44 years old3544,Never,Never,Sometimes,Never,Never,Often,Never,Never,Neutral,Strongly agree,Agree,Agree,Agree,Strongly agree,Disagree
+17,Yes.,Female,16-24 years old1624,Rarely,Never,Rarely,Rarely,Rarely,Sometimes,Rarely,Never,Neutral,Agree,Agree,Agree,Neutral,Agree,Disagree
+18,Yes.,Female,25-34 years old2534,Rarely,Rarely,Never,Never,Rarely,Often,Never,Rarely,Disagree,Strongly agree,Strongly agree,Strongly agree,Agree,Strongly agree,Agree
+19,Yes.,Female,35-44 years old3544,Rarely,Sometimes,Rarely,Rarely,Rarely,Sometimes,Rarely,Rarely,Neutral,Agree,Agree,Neutral,Agree,Neutral,Neutral
+20,Yes.,Female,25-34 years old2534,Rarely,Sometimes,Rarely,Never,Rarely,Sometimes,Rarely,Rarely,Neutral,Neutral,Agree,Neutral,Agree,Agree,Agree
+21,Yes.,Female,25-34 years old2534,Sometimes,Sometimes,Rarely,Rarely,Rarely,Rarely,Rarely,Rarely,Disagree,Neutral,Agree,Agree,Agree,Agree,Strongly disagree
+22,Yes.,Female,16-24 years old1624,Rarely,Never,Rarely,Rarely,Never,Often,Sometimes,Rarely,Disagree,Agree,Disagree,Agree,Agree,Strongly agree,Strongly agree
+23,No.,,,,,,,,,,,,,,,,,
+24,Yes.,Female,25-34 years old2534,Sometimes,Often,Never,Often,Often,Rarely,Sometimes,Sometimes,Neutral,Neutral,Agree,Agree,Agree,Strongly agree,Disagree
+25,Yes.,Female,25-34 years old2534,Often,Sometimes,Rarely,Often,Often,Rarely,Sometimes,Sometimes,Disagree,Strongly agree,Neutral,Strongly agree,Agree,Neutral,Disagree
+26,Yes.,Female,35-44 years old3544,Rarely,Rarely,Sometimes,Never,Rarely,Often,Rarely,Never,Neutral,Agree,Agree,Agree,Neutral,Agree,Neutral
+27,Yes.,Female,16-24 years old1624,Rarely,Never,Rarely,Never,Rarely,Sometimes,Rarely,Rarely,Disagree,Agree,Agree,Agree,Strongly agree,Agree,Disagree
+28,Yes.,Female,16-24 years old1624,Rarely,Sometimes,Never,Rarely,Rarely,Sometimes,Rarely,Sometimes,Agree,Agree,Disagree,Agree,Agree,Agree,Agree
+29,Yes.,Female,25-34 years old2534,Rarely,Sometimes,Never,Rarely,Sometimes,Sometimes,Sometimes,Rarely,Strongly disagree,Agree,Neutral,Strongly agree,Agree,Agree,Disagree
+30,Yes.,Female,16-24 years old1624,Rarely,Rarely,Rarely,Rarely,Rarely,Sometimes,Never,Never,Agree,Agree,Disagree,Neutral,Neutral,Agree,Agree
+31,Yes.,Female,25-34 years old2534,Rarely,Rarely,Rarely,Never,Sometimes,Sometimes,Never,Never,Neutral,Agree,Agree,Agree,Agree,Agree,Agree
+32,Yes.,Female,16-24 years old1624,Often,Often,Never,Sometimes,Sometimes,Rarely,Rarely,Often,Disagree,Agree,Agree,Agree,Disagree,Strongly agree,Neutral
+33,Yes.,Female,25-34 years old2534,Sometimes,Sometimes,Rarely,Rarely,Sometimes,Sometimes,Sometimes,Rarely,Neutral,Agree,Agree,Strongly agree,Agree,Agree,Agree
+34,No.,,,,,,,,,,,,,,,,,
+35,Yes.,Female,35-44 years old3544,Rarely,Rarely,Never,Sometimes,Rarely,Sometimes,Rarely,Rarely,Agree,Strongly agree,Agree,Agree,Agree,Agree,Agree
+36,No.,,,,,,,,,,,,,,,,,
+37,Yes.,Female,16-24 years old1624,Rarely,Rarely,Sometimes,Rarely,Rarely,Sometimes,Sometimes,Sometimes,Disagree,Neutral,Disagree,Agree,Neutral,Agree,Agree
+38,Yes.,Female,35-44 years old3544,Sometimes,Rarely,Never,Rarely,Rarely,Sometimes,Rarely,Rarely,Agree,Strongly agree,Neutral,Agree,Agree,Agree,Agree
+39,Yes.,Female,25-34 years old2534,Never,Rarely,Rarely,Never,Rarely,Often,Rarely,Rarely,Neutral,Agree,Agree,Agree,Agree,Strongly agree,Agree
+40,Yes.,Female,25-34 years old2534,Rarely,Rarely,Rarely,Never,Rarely,Often,Rarely,Never,Strongly agree,Strongly agree,Strongly agree,Strongly agree,Strongly agree,Strongly agree,Strongly agree
+41,Yes.,Female,16-24 years old1624,Sometimes,Sometimes,Rarely,Rarely,Sometimes,Sometimes,Rarely,Rarely,Disagree,Agree,Strongly agree,Strongly agree,Strongly agree,Strongly agree,Strongly agree
+42,Yes.,Female,25-34 years old2534,Rarely,Rarely,Never,Rarely,Rarely,Rarely,Rarely,Rarely,Neutral,Agree,Agree,Agree,Agree,Agree,Agree
+43,Yes.,Female,16-24 years old1624,Sometimes,Often,Never,Rarely,Sometimes,Never,Rarely,Never,Agree,Strongly agree,Agree,Strongly agree,Agree,Strongly agree,Disagree
+44,No.,,,,,,,,,,,,,,,,,
+45,Yes.,Female,35-44 years old3544,Rarely,Rarely,Never,Rarely,Never,Sometimes,Never,Never,Neutral,Neutral,Neutral,Neutral,Neutral,Neutral,Neutral
+46,Yes.,Female,25-34 years old2534,Rarely,Rarely,Rarely,Never,Rarely,Sometimes,Never,Sometimes,Agree,Neutral,Agree,Strongly agree,Strongly agree,Agree,Disagree
+47,Yes.,Female,16-24 years old1624,Rarely,Rarely,Never,Never,Sometimes,Rarely,Rarely,Sometimes,Disagree,Agree,Agree,Neutral,Neutral,Agree,Neutral
+48,Yes.,Female,25-34 years old2534,Rarely,Sometimes,Never,Rarely,Sometimes,Rarely,Sometimes,Sometimes,Neutral,Agree,Agree,Agree,Neutral,Agree,Neutral
+49,Yes.,Female,16-24 years old1624,Sometimes,Sometimes,Never,Rarely,Often,Rarely,Often,Often,Disagree,Agree,Agree,Agree,Agree,Agree,Agree
+50,Yes.,Male,25-34 years old2534,Rarely,Never,Often,Never,Never,Often,Never,Never,Disagree,Neutral,Strongly disagree,Agree,Strongly disagree,Agree,Strongly disagree
+51,Yes.,Female,25-34 years old2534,Rarely,Rarely,Never,Rarely,Rarely,Rarely,Sometimes,Rarely,Disagree,Strongly agree,Neutral,Agree,Agree,Neutral,Strongly agree
+52,Yes.,Female,16-24 years old1624,Often,Rarely,Rarely,Sometimes,Sometimes,Sometimes,Sometimes,Sometimes,Neutral,Disagree,Agree,Agree,Agree,Agree,Agree
+53,Yes.,Female,16-24 years old1624,Often,Often,Rarely,Sometimes,Often,Rarely,Often,Often,Agree,Agree,Strongly agree,Strongly agree,Strongly agree,Strongly agree,Agree
+54,Yes.,Female,16-24 years old1624,Sometimes,Rarely,Rarely,Rarely,Rarely,Sometimes,Rarely,Never,Agree,Neutral,Agree,Agree,Agree,Strongly agree,Strongly agree
+55,Yes.,Female,16-24 years old1624,Rarely,Never,Often,Never,Never,Often,Never,Rarely,Agree,Agree,Agree,Agree,Strongly agree,Strongly agree,Disagree
+56,Yes.,Female,25-34 years old2534,Sometimes,Sometimes,Never,Rarely,Rarely,Rarely,Never,Never,Neutral,Agree,Neutral,Neutral,Agree,Neutral,Disagree
+57,Yes.,Female,25-34 years old2534,Rarely,Rarely,Sometimes,Rarely,Never,Sometimes,Never,Never,Neutral,Agree,Agree,Neutral,Agree,Agree,Agree
+58,Yes.,Female,25-34 years old2534,Sometimes,Sometimes,Never,Sometimes,Sometimes,Rarely,Rarely,Sometimes,Disagree,Neutral,Neutral,Agree,Neutral,Agree,Neutral
+59,Yes.,Female,16-24 years old1624,Sometimes,Sometimes,Never,Rarely,Sometimes,Often,Rarely,Often,Disagree,Disagree,Disagree,Neutral,Neutral,Neutral,Strongly agree
+60,No.,,,,,,,,,,,,,,,,,
+61,Yes.,Female,16-24 years old1624,Never,Never,Rarely,Never,Never,Sometimes,Never,Never,Strongly disagree,Neutral,Strongly disagree,Strongly disagree,Agree,Agree,Strongly disagree
+62,Yes.,Female,25-34 years old2534,Rarely,Rarely,Rarely,Rarely,Rarely,Sometimes,Rarely,Rarely,Disagree,Neutral,Agree,Agree,Neutral,Agree,Agree
+63,Yes.,Female,25-34 years old2534,Never,Sometimes,Rarely,Never,Rarely,Rarely,Rarely,Often,Disagree,Agree,Neutral,Agree,Neutral,Agree,Disagree
+64,Yes.,Female,16-24 years old1624,Sometimes,Rarely,Never,Never,Rarely,Sometimes,Sometimes,Rarely,Disagree,Agree,Agree,Strongly agree,Agree,Strongly agree,Strongly agree
+65,Yes.,Female,16-24 years old1624,Sometimes,Rarely,Rarely,Rarely,Rarely,Sometimes,Sometimes,Rarely,Disagree,Strongly agree,Strongly agree,Strongly agree,Agree,Strongly agree,Strongly agree
+66,Yes.,Female,25-34 years old2534,Rarely,Rarely,Never,Rarely,Rarely,Sometimes,Rarely,Rarely,Neutral,Agree,Agree,Agree,Strongly agree,Agree,Neutral
+67,Yes.,Female,16-24 years old1624,Rarely,Never,Sometimes,Never,Rarely,Rarely,Rarely,Rarely,Neutral,Agree,Agree,Agree,Agree,Agree,Strongly disagree
+68,Yes.,Female,25-34 years old2534,Sometimes,Rarely,Never,Rarely,Sometimes,Rarely,Rarely,Sometimes,Disagree,Agree,Agree,Agree,Neutral,Strongly agree,Agree
+69,Yes.,Female,25-34 years old2534,Sometimes,Rarely,Rarely,Sometimes,Sometimes,Often,Sometimes,Rarely,Neutral,Strongly agree,Agree,Strongly agree,Strongly agree,Neutral,Agree
