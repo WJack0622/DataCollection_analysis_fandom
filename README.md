@@ -101,6 +101,16 @@ We could also calculate the mean of both scores to see the average participation
 ---
 
 ```{r}
+library(psych)
+
+Frequency_questions_num <- c('L_C1_num', 'L_C2_num', 'L_C3_num', 'L_C4_num', 'L_C5_num','L_C6_num', 'L_C7_num', 'L_C8_num')
+Agreement_questions_num <- c('F_C1_num', 'F_C2_num', 'F_C3_num', 'F_C4_num', 'F_C5_num', 'F_C6_num', 'F_C7_num')
+psych::alpha(d_loneliness_association[, Frequency_questions_num])
+
+psych::alpha(d_loneliness_association[, Agreement_questions_num])
+```
+
+```{r}
 d_loneliness_association %>%
   group_by(
     Gender
@@ -142,14 +152,4 @@ d_loneliness_association %>%
     ~ agreement_score + frequency_score,
     data = .
   )
-```
-
-```{r}
-library(psych)
-
-Frequency_questions_num <- c('L_C1_num', 'L_C2_num', 'L_C3_num', 'L_C4_num', 'L_C5_num','L_C6_num', 'L_C7_num', 'L_C8_num')
-Agreement_questions_num <- c('F_C1_num', 'F_C2_num', 'F_C3_num', 'F_C4_num', 'F_C5_num', 'F_C6_num', 'F_C7_num')
-psych::alpha(d_loneliness_association[, Frequency_questions_num])
-
-psych::alpha(d_loneliness_association[, Agreement_questions_num])
 ```
