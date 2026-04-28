@@ -1,3 +1,9 @@
+---
+output:
+  word_document: default
+  html_document: default
+  pdf_document: default
+---
 # DataCollection_analysis_fandom
 ---
 title: "Fandom Association with loneliness analysis"

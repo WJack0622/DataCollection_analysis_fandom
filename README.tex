@@ -1,0 +1,160 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+]{article}
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+
+\subsection{\#
+DataCollection\_analysis\_fandom}\label{datacollection_analysis_fandom}
+
+title: ``Fandom Association with loneliness analysis'' The group work on
+the analysis of correlations between interactions in fandom and the
+level of loneliness. Here we import the excel dataset into the RStudio
+software first. ---
+
+\texttt{\{r\}\ library(dplyr)\ library(readr)\ library(ggplot2)\ d\_loneliness\_association\ \textless{}-\ read.csv(\textquotesingle{}Loneliness\_association.csv\textquotesingle{})}
+
+\begin{longtable}[]{@{}l@{}}
+\toprule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+First, we exclude all the answers that say they don't follow any
+celebrities in real life. \\
+\end{longtable}
+
+\texttt{\{r\}\ d\_loneliness\_association\ \textless{}-\ d\_loneliness\_association\ \%\textgreater{}\%\ \ \ filter(\ \ \ \ \ Follow\_celeb\ ==\ \textquotesingle{}Yes.\textquotesingle{}\ \ \ )}
+--- Then we could then convert all our ordinal answers into numerical
+forms that allow us to add up and summarise the scores. Here, we sort
+out the series of questions that test the loneliness, L\_C1 - L\_C8,
+with two reverse questions. Here the higher the score is, the higher the
+loneliness level would be. ---
+
+\texttt{\{r\}\ normal\_questions\ \textless{}-\ c(\textquotesingle{}L\_C1\textquotesingle{},\ \textquotesingle{}L\_C2\textquotesingle{},\ \textquotesingle{}L\_C4\textquotesingle{},\ \textquotesingle{}L\_C5\textquotesingle{},\ \textquotesingle{}L\_C7\textquotesingle{},\ \textquotesingle{}L\_C8\textquotesingle{})\ reverse\_questions\ \textless{}-\ c(\textquotesingle{}L\_C3\textquotesingle{},\ \textquotesingle{}L\_C6\textquotesingle{})\ d\_loneliness\_association\ \textless{}-\ d\_loneliness\_association\%\textgreater{}\%\ \ \ mutate(\ \ \ \ \ across(\ \ \ \ \ \ \ all\_of(normal\_questions),\ \ \ \ \ \ \ \textasciitilde{}case\_when(\ \ \ \ \ \ \ \ \ .\ ==\ \textquotesingle{}Never\textquotesingle{}\ \textasciitilde{}\ 1,\ \ \ \ \ \ \ \ \ .\ ==\ \textquotesingle{}Rarely\textquotesingle{}\ \textasciitilde{}\ 2,\ \ \ \ \ \ \ \ \ .\ ==\ \textquotesingle{}Sometimes\textquotesingle{}\ \textasciitilde{}\ 3,\ \ \ \ \ \ \ \ \ .\ ==\ \textquotesingle{}Often\textquotesingle{}\ \textasciitilde{}\ 4,\ \ \ \ \ \ \ \ \ TRUE\ \textasciitilde{}\ NA\_real\_\ \ \ \ \ \ \ ),\ \ \ \ \ \ \ .names\ =\ "\{.col\}\_num"\ \ \ \ \ ),\ \ \ \ \ across(\ \ \ \ \ \ \ all\_of(reverse\_questions),\ \ \ \ \ \ \ \textasciitilde{}case\_when(\ \ \ \ \ \ \ \ \ .\ ==\ \textquotesingle{}Never\textquotesingle{}\ \textasciitilde{}\ 4,\ \ \ \ \ \ \ \ \ .\ ==\ \textquotesingle{}Rarely\textquotesingle{}\ \textasciitilde{}\ 3,\ \ \ \ \ \ \ \ \ .\ ==\ \textquotesingle{}Sometimes\textquotesingle{}\ \textasciitilde{}\ 2,\ \ \ \ \ \ \ \ \ .\ ==\ \textquotesingle{}Often\textquotesingle{}\ \textasciitilde{}\ 1,\ \ \ \ \ \ \ \ \ TRUE\ \textasciitilde{}\ NA\_real\_\ \ \ \ \ \ \ ),\ \ \ \ \ \ \ .names\ =\ "\{.col\}\_num"\ \ \ \ \ )\ \ \ )}
+--- Here we then clean out the questions on the participation with
+fandom, marked F\_C1 - F\_C7, with no reverse questions. Here, the
+higher the scores are, the more participated you are in the fandoms. ---
+
+\texttt{\{r\}\ questions\ \textless{}-\ c(\textquotesingle{}F\_C1\textquotesingle{},\ \textquotesingle{}F\_C2\textquotesingle{},\ \textquotesingle{}F\_C3\textquotesingle{},\ \textquotesingle{}F\_C4\textquotesingle{},\ \textquotesingle{}F\_C5\textquotesingle{},\ \textquotesingle{}F\_C6\textquotesingle{},\ \textquotesingle{}F\_C7\textquotesingle{})\ d\_loneliness\_association\ \textless{}-\ d\_loneliness\_association\%\textgreater{}\%\ \ \ mutate(\ \ \ \ \ across(\ \ \ \ \ \ \ all\_of(questions),\ \ \ \ \ \ \ \textasciitilde{}case\_when(\ \ \ \ \ \ \ \ \ .==\ "Strongly\ disagree"\ \textasciitilde{}\ 1,\ \ \ \ \ \ \ \ \ .==\ "Disagree"\ \textasciitilde{}\ 2,\ \ \ \ \ \ \ \ \ .==\ "Neutral"\ \textasciitilde{}\ 3,\ \ \ \ \ \ \ \ \ .==\ "Agree"\ \textasciitilde{}\ 4,\ \ \ \ \ \ \ \ \ .==\ "Strongly\ agree"\ \textasciitilde{}\ 5,\ \ \ \ \ \ \ \ \ TRUE\ \textasciitilde{}\ NA\_real\_\ \ \ \ \ \ \ ),\ \ \ \ \ \ \ .names\ =\ "\{.col\}\_num"\ \ \ \ \ )\ \ \ )}
+--- Then we can sum up all the columns together to get two overall
+scores. ---
+\texttt{\{r\}\ d\_loneliness\_association\ \textless{}-\ d\_loneliness\_association\%\textgreater{}\%\ \ \ mutate(\ \ \ \ \ frequency\_score\ =\ rowSums(\ \ \ \ \ \ \ across(all\_of(paste0(c(normal\_questions,\ reverse\_questions),\ "\_num"))),\ \ \ \ \ \ \ na.rm\ =\ TRUE\ \ \ ),\ \ \ agreement\_score\ =\ rowSums(\ \ \ \ \ \ \ across(all\_of(paste0(c(questions),\ "\_num"))),\ \ \ \ \ \ \ na.rm\ =\ TRUE\ \ \ \ \ )\ \ \ )}
+--- After the cleaning, we can see the distribution of gender and age
+respectively, starting with gender first, then age groups. The gender is
+done only on biological gender instead of the identity. We could also
+calculate the mean of both scores to see the average participation level
+and the average degree of loneliness. ---
+
+```\{r\} library(psych)
+
+Frequency\_questions\_num \textless- c(`L\_C1\_num', `L\_C2\_num',
+`L\_C3\_num', `L\_C4\_num', `L\_C5\_num',`L\_C6\_num', `L\_C7\_num',
+`L\_C8\_num') Agreement\_questions\_num \textless- c(`F\_C1\_num',
+`F\_C2\_num', `F\_C3\_num', `F\_C4\_num', `F\_C5\_num', `F\_C6\_num',
+`F\_C7\_num') psych::alpha(d\_loneliness\_association{[},
+Frequency\_questions\_num{]})
+
+psych::alpha(d\_loneliness\_association{[},
+Agreement\_questions\_num{]})
+
+\begin{verbatim}
+
+```{r}
+d_loneliness_association %>%
+  group_by(
+    Gender
+  ) %>%summarise(
+    n = n(),
+    M1 = mean(frequency_score),
+    M2 = mean(agreement_score)
+    )
+\end{verbatim}
+
+\begin{longtable}[]{@{}l@{}}
+\toprule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Here above we can see that there is only 1 male participant. \\
+\end{longtable}
+
+\texttt{\{r\}\ d\_loneliness\_association\ \%\textgreater{}\%\ \ \ group\_by(\ \ \ \ \ Age\_group\ \ \ )\ \%\textgreater{}\%summarise(\ \ \ \ \ n\ =\ n(),\ \ \ \ \ M1\ =\ mean(frequency\_score),\ \ \ \ \ M2\ =\ mean(agreement\_score),\ \ \ \ \ SD1\ =\ sd(frequency\_score),\ \ \ \ \ SD2\ =\ sd(agreement\_score),\ \ \ \ \ MED1\ =\ median(frequency\_score),\ \ \ \ \ MED2\ =\ median(agreement\_score)\ \ \ \ \ )}
+
+\texttt{\{r\}\ d\_loneliness\_association\ \%\textgreater{}\%\ \ \ ggplot(\ \ \ \ \ \ \ aes(x\ =\ frequency\_score,\ y\ =\ agreement\_score)\ \ \ )\ +\ \ \ \ geom\_jitter()}
+
+\texttt{\{r\}\ d\_loneliness\_association\ \%\textgreater{}\%\ \ \ cor.test(\ \ \ \ \ \textasciitilde{}\ agreement\_score\ +\ frequency\_score,\ \ \ \ \ data\ =\ .\ \ \ )}
+
+\end{document}
