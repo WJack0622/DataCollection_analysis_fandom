@@ -1,0 +1,188 @@
+---
+title: "Fandom Association with Loneliness Analysis"
+author: "Jack Wang"
+output:
+  word_document:
+    toc: true
+  html_document:
+    toc: true
+    code_folding: show
+---
+#Data_collection_analysis_fandom
+
+The group work on the analysis of correlations between interactions in fandom and the level of loneliness.
+Here we import the csv dataset into the RStudio software first.
+
+
+```{r}
+
+library(dplyr)
+library(readr)
+library(ggplot2)
+d_loneliness_association <- read.csv('Loneliness_association.csv')
+
+```
+
+
+First, we exclude all the answers that say they don't follow any celebrities in real life.
+
+
+```{r}
+
+d_loneliness_association <- d_loneliness_association %>%
+  filter(
+    Follow_celeb == 'Yes.'
+  )
+
+```
+
+
+Then we could then convert all our ordinal answers into numerical forms that allow us to add up and summarise the scores.
+Here, we sort out the series of questions that test the loneliness, L_C1 - L_C8, with two reverse questions. Here the higher the score is, the higher the loneliness level would be.
+
+
+```{r}
+
+normal_questions <- c('L_C1', 'L_C2', 'L_C4', 'L_C5', 'L_C7', 'L_C8')
+reverse_questions <- c('L_C3', 'L_C6')
+d_loneliness_association <- d_loneliness_association%>%
+  mutate(
+    across(
+      all_of(normal_questions),
+      ~case_when(
+        . == 'Never' ~ 1,
+        . == 'Rarely' ~ 2,
+        . == 'Sometimes' ~ 3,
+        . == 'Often' ~ 4,
+        TRUE ~ NA_real_
+      ),
+      .names = "{.col}_num"
+    ),
+    across(
+      all_of(reverse_questions),
+      ~case_when(
+        . == 'Never' ~ 4,
+        . == 'Rarely' ~ 3,
+        . == 'Sometimes' ~ 2,
+        . == 'Often' ~ 1,
+        TRUE ~ NA_real_
+      ),
+      .names = "{.col}_num"
+    )
+  )
+
+```
+---
+Here we then clean out the questions on the participation with fandom, marked F_C1 - F_C7, with no reverse questions. Here, the higher the scores are, the more participated you are in the fandoms.
+---
+
+```{r}
+
+questions <- c('F_C1', 'F_C2', 'F_C3', 'F_C4', 'F_C5', 'F_C6', 'F_C7')
+d_loneliness_association <- d_loneliness_association%>%
+  mutate(
+    across(
+      all_of(questions),
+      ~case_when(
+        .== "Strongly disagree" ~ 1,
+        .== "Disagree" ~ 2,
+        .== "Neutral" ~ 3,
+        .== "Agree" ~ 4,
+        .== "Strongly agree" ~ 5,
+        TRUE ~ NA_real_
+      ),
+      .names = "{.col}_num"
+    )
+  )
+
+```
+
+Then we can sum up all the columns together to get two overall scores.
+
+```{r}
+d_loneliness_association <- d_loneliness_association%>%
+  mutate(
+    frequency_score = rowSums(
+      across(all_of(paste0(c(normal_questions, reverse_questions), "_num"))),
+      na.rm = TRUE
+  ),
+  agreement_score = rowSums(
+      across(all_of(paste0(c(questions), "_num"))),
+      na.rm = TRUE
+    )
+  )
+```
+
+After the cleaning, we can see the distribution of gender and age respectively, starting with gender first, then age groups.
+The gender is done only on biological gender instead of the identity.
+We could also calculate the mean of both scores to see the average participation level and the average degree of loneliness.
+
+
+```{r}
+library(psych)
+
+Frequency_questions_num <- c('L_C1_num', 'L_C2_num', 'L_C3_num', 'L_C4_num', 'L_C5_num','L_C6_num', 'L_C7_num', 'L_C8_num')
+Agreement_questions_num <- c('F_C1_num', 'F_C2_num', 'F_C3_num', 'F_C4_num', 'F_C5_num', 'F_C6_num', 'F_C7_num')
+psych::alpha(d_loneliness_association[, Frequency_questions_num])
+
+psych::alpha(d_loneliness_association[, Agreement_questions_num])
+```
+
+```{r}
+d_loneliness_association %>%
+  group_by(
+    Gender
+  ) %>%summarise(
+    n = n(),
+    M1 = mean(frequency_score),
+    M2 = mean(agreement_score)
+    )
+```
+
+Here above we can see that there is only 1 male participant.
+
+```{r}
+d_loneliness_association %>%
+  group_by(
+    Age_group
+  ) %>%summarise(
+    n = n(),
+    M1 = mean(frequency_score),
+    M2 = mean(agreement_score),
+    SD1 = sd(frequency_score),
+    SD2 = sd(agreement_score),
+    MED1 = median(frequency_score),
+    MED2 = median(agreement_score)
+    )
+```
+
+```{r}
+
+d_loneliness_association %>%
+  ggplot(
+      aes(x = frequency_score, y = agreement_score)
+  ) + 
+  geom_jitter() +
+  labs(
+    title = "Correlation between loneliness and fandom participation",
+      x = "loneliness_score",
+      y = "fandom_participation_score"
+  )
+```
+
+```{r}
+d_loneliness_association %>%
+  cor.test(
+    ~ agreement_score + frequency_score,
+    data = .
+  )
+```
+
+```{r}
+d_loneliness_association %>%
+  cor.test(
+    ~ agreement_score + frequency_score,
+    data = .,
+    method = "spearman"
+  )
+```
